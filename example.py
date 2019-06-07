@@ -20,8 +20,8 @@ try:
     filter = '{"where": {"lastConnection": { "gt": "2019-01-01" } } }' # str | Filter defining fields and include - must be a JSON-encoded string, optional
     devices_on_account_with_recent_connections = user_api.user_prototype_get_devices(user_id, filter=filter)
     for device in devices_on_account_with_recent_connections:
-        last_point = device_api.device_prototype_get_points(device.id, filter='{"limit":1}')[0]
-        print("Last point for device %s was at address %s" % (device.name, last_point.address))
+        last_point = device_api.device_prototype_get_points(device.id, filter='{"limit":1, "order":"timestamp DESC", "where": {"location":{"neq":null}}}')[0]
+        print("Last point for device %s was at address %s @ %s" % (device.name, last_point.address, last_point.timestamp))
 except ApiException as e:
     print("Exception when calling DeviceApi->device_find_by_id: %s\n" % e)
 
