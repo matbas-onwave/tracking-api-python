@@ -542,6 +542,115 @@ class UserApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def user_prototype_get_device_summary(self, id, **kwargs):  # noqa: E501
+        """Retrieve a summary of all devices on this user account.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.user_prototype_get_device_summary(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: user id (required)
+        :param str point_count: Maximum number of points to return per device. Default 5.
+        :param str date_range: What date range to consider when retrieving recent points. Typical use is [TimeOfLastPointDownload, NOW]. Defaults to all time.
+        :param str hide_approx: Don't include GSM / poor accuracy locations. Default to false.
+        :return: list[XAny]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.user_prototype_get_device_summary_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.user_prototype_get_device_summary_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def user_prototype_get_device_summary_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Retrieve a summary of all devices on this user account.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.user_prototype_get_device_summary_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: user id (required)
+        :param str point_count: Maximum number of points to return per device. Default 5.
+        :param str date_range: What date range to consider when retrieving recent points. Typical use is [TimeOfLastPointDownload, NOW]. Defaults to all time.
+        :param str hide_approx: Don't include GSM / poor accuracy locations. Default to false.
+        :return: list[XAny]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'point_count', 'date_range', 'hide_approx']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method user_prototype_get_device_summary" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `user_prototype_get_device_summary`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+        if 'point_count' in params:
+            query_params.append(('pointCount', params['point_count']))  # noqa: E501
+        if 'date_range' in params:
+            query_params.append(('dateRange', params['date_range']))  # noqa: E501
+        if 'hide_approx' in params:
+            query_params.append(('hideApprox', params['hide_approx']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/users/{id}/getDeviceSummary', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[XAny]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def user_prototype_get_devices(self, id, **kwargs):  # noqa: E501
         """Queries devices of user.  # noqa: E501
 
@@ -636,6 +745,115 @@ class UserApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='list[Device]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def user_prototype_get_devices_in_zone(self, id, **kwargs):  # noqa: E501
+        """Retrieve a list of devices in any given zone or group of zones.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.user_prototype_get_devices_in_zone(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: user id (required)
+        :param str zone_id: ID of geofence to search. zoneId or zoneType required.
+        :param str zone_type: Type of zones to search. Ignored if zoneId is specified. zoneId or zoneType required.
+        :param str include_approx: Include GSM / poor accuracy locations. Default to false.
+        :return: list[XAny]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.user_prototype_get_devices_in_zone_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.user_prototype_get_devices_in_zone_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def user_prototype_get_devices_in_zone_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Retrieve a list of devices in any given zone or group of zones.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.user_prototype_get_devices_in_zone_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: user id (required)
+        :param str zone_id: ID of geofence to search. zoneId or zoneType required.
+        :param str zone_type: Type of zones to search. Ignored if zoneId is specified. zoneId or zoneType required.
+        :param str include_approx: Include GSM / poor accuracy locations. Default to false.
+        :return: list[XAny]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'zone_id', 'zone_type', 'include_approx']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method user_prototype_get_devices_in_zone" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `user_prototype_get_devices_in_zone`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+        if 'zone_id' in params:
+            query_params.append(('zoneId', params['zone_id']))  # noqa: E501
+        if 'zone_type' in params:
+            query_params.append(('zoneType', params['zone_type']))  # noqa: E501
+        if 'include_approx' in params:
+            query_params.append(('includeApprox', params['include_approx']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/users/{id}/getDevicesInZone', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[XAny]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

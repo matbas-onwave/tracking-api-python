@@ -28,8 +28,11 @@ from lb_tracking_api.models.credentials import Credentials
 from lb_tracking_api.models.datapoint import Datapoint
 from lb_tracking_api.models.device import Device
 from lb_tracking_api.models.device_config import DeviceConfig
+from lb_tracking_api.models.device_message import DeviceMessage
+from lb_tracking_api.models.device_transient import DeviceTransient
 from lb_tracking_api.models.geo_point import GeoPoint
 from lb_tracking_api.models.geofence import Geofence
 from lb_tracking_api.models.inline_response200 import InlineResponse200
+from lb_tracking_api.models.notification import Notification
 from lb_tracking_api.models.notification_trigger import NotificationTrigger
 from lb_tracking_api.models.sensor_reading import SensorReading

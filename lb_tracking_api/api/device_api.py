@@ -134,6 +134,107 @@ class DeviceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def device_prototype_create_messages(self, id, **kwargs):  # noqa: E501
+        """Creates a new instance in messages of this model.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_create_messages(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param DeviceMessage data: Body (JSON)
+        :return: DeviceMessage
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.device_prototype_create_messages_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.device_prototype_create_messages_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def device_prototype_create_messages_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Creates a new instance in messages of this model.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_create_messages_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param DeviceMessage data: Body (JSON)
+        :return: DeviceMessage
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method device_prototype_create_messages" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_create_messages`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/devices/{id}/messages', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeviceMessage',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def device_prototype_create_notification_triggers(self, id, **kwargs):  # noqa: E501
         """Create alert/notification trigger for device  # noqa: E501
 
@@ -235,6 +336,103 @@ class DeviceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def device_prototype_delete_messages(self, id, **kwargs):  # noqa: E501
+        """Deletes all messages of this model.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_delete_messages(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.device_prototype_delete_messages_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.device_prototype_delete_messages_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def device_prototype_delete_messages_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Deletes all messages of this model.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_delete_messages_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method device_prototype_delete_messages" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_delete_messages`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/devices/{id}/messages', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def device_prototype_delete_notification_triggers(self, id, **kwargs):  # noqa: E501
         """Remove all alert/notification trigger for device  # noqa: E501
 
@@ -318,6 +516,111 @@ class DeviceApi(object):
 
         return self.api_client.call_api(
             '/devices/{id}/notificationTriggers', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def device_prototype_destroy_by_id_notification_triggers(self, id, fk, **kwargs):  # noqa: E501
+        """Remove alert/notification trigger by id {fk} for device  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_destroy_by_id_notification_triggers(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for notificationTriggers (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.device_prototype_destroy_by_id_notification_triggers_with_http_info(id, fk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.device_prototype_destroy_by_id_notification_triggers_with_http_info(id, fk, **kwargs)  # noqa: E501
+            return data
+
+    def device_prototype_destroy_by_id_notification_triggers_with_http_info(self, id, fk, **kwargs):  # noqa: E501
+        """Remove alert/notification trigger by id {fk} for device  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_destroy_by_id_notification_triggers_with_http_info(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for notificationTriggers (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'fk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method device_prototype_destroy_by_id_notification_triggers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_destroy_by_id_notification_triggers`")  # noqa: E501
+        # verify the required parameter 'fk' is set
+        if ('fk' not in params or
+                params['fk'] is None):
+            raise ValueError("Missing the required parameter `fk` when calling `device_prototype_destroy_by_id_notification_triggers`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+        if 'fk' in params:
+            path_params['fk'] = params['fk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/devices/{id}/notificationTriggers/{fk}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -430,6 +733,216 @@ class DeviceApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def device_prototype_destroy_by_id_transients(self, id, fk, **kwargs):  # noqa: E501
+        """Delete a related item by id for transients.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_destroy_by_id_transients(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for transients (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.device_prototype_destroy_by_id_transients_with_http_info(id, fk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.device_prototype_destroy_by_id_transients_with_http_info(id, fk, **kwargs)  # noqa: E501
+            return data
+
+    def device_prototype_destroy_by_id_transients_with_http_info(self, id, fk, **kwargs):  # noqa: E501
+        """Delete a related item by id for transients.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_destroy_by_id_transients_with_http_info(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for transients (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'fk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method device_prototype_destroy_by_id_transients" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_destroy_by_id_transients`")  # noqa: E501
+        # verify the required parameter 'fk' is set
+        if ('fk' not in params or
+                params['fk'] is None):
+            raise ValueError("Missing the required parameter `fk` when calling `device_prototype_destroy_by_id_transients`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+        if 'fk' in params:
+            path_params['fk'] = params['fk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/devices/{id}/transients/{fk}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def device_prototype_find_by_id_notification_triggers(self, id, fk, **kwargs):  # noqa: E501
+        """Find a related item by id for notificationTriggers.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_find_by_id_notification_triggers(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for notificationTriggers (required)
+        :return: NotificationTrigger
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.device_prototype_find_by_id_notification_triggers_with_http_info(id, fk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.device_prototype_find_by_id_notification_triggers_with_http_info(id, fk, **kwargs)  # noqa: E501
+            return data
+
+    def device_prototype_find_by_id_notification_triggers_with_http_info(self, id, fk, **kwargs):  # noqa: E501
+        """Find a related item by id for notificationTriggers.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_find_by_id_notification_triggers_with_http_info(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for notificationTriggers (required)
+        :return: NotificationTrigger
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'fk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method device_prototype_find_by_id_notification_triggers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_find_by_id_notification_triggers`")  # noqa: E501
+        # verify the required parameter 'fk' is set
+        if ('fk' not in params or
+                params['fk'] is None):
+            raise ValueError("Missing the required parameter `fk` when calling `device_prototype_find_by_id_notification_triggers`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+        if 'fk' in params:
+            path_params['fk'] = params['fk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/devices/{id}/notificationTriggers/{fk}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='NotificationTrigger',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -647,6 +1160,111 @@ class DeviceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def device_prototype_find_by_id_transients(self, id, fk, **kwargs):  # noqa: E501
+        """Find a related item by id for transients.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_find_by_id_transients(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for transients (required)
+        :return: DeviceTransient
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.device_prototype_find_by_id_transients_with_http_info(id, fk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.device_prototype_find_by_id_transients_with_http_info(id, fk, **kwargs)  # noqa: E501
+            return data
+
+    def device_prototype_find_by_id_transients_with_http_info(self, id, fk, **kwargs):  # noqa: E501
+        """Find a related item by id for transients.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_find_by_id_transients_with_http_info(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for transients (required)
+        :return: DeviceTransient
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'fk']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method device_prototype_find_by_id_transients" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_find_by_id_transients`")  # noqa: E501
+        # verify the required parameter 'fk' is set
+        if ('fk' not in params or
+                params['fk'] is None):
+            raise ValueError("Missing the required parameter `fk` when calling `device_prototype_find_by_id_transients`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+        if 'fk' in params:
+            path_params['fk'] = params['fk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/devices/{id}/transients/{fk}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeviceTransient',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def device_prototype_flight_mode(self, id, duration, **kwargs):  # noqa: E501
         """device_prototype_flight_mode  # noqa: E501
 
@@ -846,6 +1464,107 @@ class DeviceApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeviceConfig',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def device_prototype_get_messages(self, id, **kwargs):  # noqa: E501
+        """Queries messages of device.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_get_messages(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param str filter: JSON Filter object
+        :return: list[DeviceMessage]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.device_prototype_get_messages_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.device_prototype_get_messages_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def device_prototype_get_messages_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Queries messages of device.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_get_messages_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param str filter: JSON Filter object
+        :return: list[DeviceMessage]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'filter']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method device_prototype_get_messages" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_get_messages`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+        if 'filter' in params:
+            query_params.append(('filter', params['filter']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/devices/{id}/messages', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[DeviceMessage]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1253,6 +1972,107 @@ class DeviceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def device_prototype_get_transients(self, id, **kwargs):  # noqa: E501
+        """Queries transients of device.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_get_transients(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param str filter: JSON Filter object
+        :return: list[DeviceTransient]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.device_prototype_get_transients_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.device_prototype_get_transients_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def device_prototype_get_transients_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Queries transients of device.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_get_transients_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param str filter: JSON Filter object
+        :return: list[DeviceTransient]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'filter']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method device_prototype_get_transients" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_get_transients`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+        if 'filter' in params:
+            query_params.append(('filter', params['filter']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/devices/{id}/transients', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[DeviceTransient]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def device_prototype_set_safe_zone(self, id, data, **kwargs):  # noqa: E501
         """Update safe-zone for device  # noqa: E501
 
@@ -1358,45 +2178,47 @@ class DeviceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def device_prototype_sleep(self, id, **kwargs):  # noqa: E501
-        """Send sleep instruction to device  # noqa: E501
+    def device_prototype_update_by_id_notification_triggers(self, id, fk, **kwargs):  # noqa: E501
+        """Update an alert/notification trigger by id {fk} for device  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.device_prototype_sleep(id, async_req=True)
+        >>> thread = api.device_prototype_update_by_id_notification_triggers(id, fk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param float id: device id (required)
-        :param float duration:
-        :return: object
+        :param float fk: Foreign key for notificationTriggers (required)
+        :param NotificationTrigger data: Body (JSON)
+        :return: NotificationTrigger
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.device_prototype_sleep_with_http_info(id, **kwargs)  # noqa: E501
+            return self.device_prototype_update_by_id_notification_triggers_with_http_info(id, fk, **kwargs)  # noqa: E501
         else:
-            (data) = self.device_prototype_sleep_with_http_info(id, **kwargs)  # noqa: E501
+            (data) = self.device_prototype_update_by_id_notification_triggers_with_http_info(id, fk, **kwargs)  # noqa: E501
             return data
 
-    def device_prototype_sleep_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Send sleep instruction to device  # noqa: E501
+    def device_prototype_update_by_id_notification_triggers_with_http_info(self, id, fk, **kwargs):  # noqa: E501
+        """Update an alert/notification trigger by id {fk} for device  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.device_prototype_sleep_with_http_info(id, async_req=True)
+        >>> thread = api.device_prototype_update_by_id_notification_triggers_with_http_info(id, fk, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param float id: device id (required)
-        :param float duration:
-        :return: object
+        :param float fk: Foreign key for notificationTriggers (required)
+        :param NotificationTrigger data: Body (JSON)
+        :return: NotificationTrigger
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'duration']  # noqa: E501
+        all_params = ['id', 'fk', 'data']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1407,24 +2229,28 @@ class DeviceApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method device_prototype_sleep" % key
+                    " to method device_prototype_update_by_id_notification_triggers" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in params or
                 params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `device_prototype_sleep`")  # noqa: E501
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_update_by_id_notification_triggers`")  # noqa: E501
+        # verify the required parameter 'fk' is set
+        if ('fk' not in params or
+                params['fk'] is None):
+            raise ValueError("Missing the required parameter `fk` when calling `device_prototype_update_by_id_notification_triggers`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'id' in params:
             path_params['id'] = params['id']  # noqa: E501
+        if 'fk' in params:
+            path_params['fk'] = params['fk']  # noqa: E501
 
         query_params = []
-        if 'duration' in params:
-            query_params.append(('duration', params['duration']))  # noqa: E501
 
         header_params = {}
 
@@ -1432,6 +2258,8 @@ class DeviceApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'data' in params:
+            body_params = params['data']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
@@ -1444,14 +2272,123 @@ class DeviceApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/devices/{id}/sleep', 'GET',
+            '/devices/{id}/notificationTriggers/{fk}', 'PUT',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='NotificationTrigger',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def device_prototype_update_by_id_transients(self, id, fk, **kwargs):  # noqa: E501
+        """Update a related item by id for transients.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_update_by_id_transients(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for transients (required)
+        :param DeviceTransient data: Body (JSON)
+        :return: DeviceTransient
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.device_prototype_update_by_id_transients_with_http_info(id, fk, **kwargs)  # noqa: E501
+        else:
+            (data) = self.device_prototype_update_by_id_transients_with_http_info(id, fk, **kwargs)  # noqa: E501
+            return data
+
+    def device_prototype_update_by_id_transients_with_http_info(self, id, fk, **kwargs):  # noqa: E501
+        """Update a related item by id for transients.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.device_prototype_update_by_id_transients_with_http_info(id, fk, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float id: device id (required)
+        :param float fk: Foreign key for transients (required)
+        :param DeviceTransient data: Body (JSON)
+        :return: DeviceTransient
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'fk', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method device_prototype_update_by_id_transients" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `device_prototype_update_by_id_transients`")  # noqa: E501
+        # verify the required parameter 'fk' is set
+        if ('fk' not in params or
+                params['fk'] is None):
+            raise ValueError("Missing the required parameter `fk` when calling `device_prototype_update_by_id_transients`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+        if 'fk' in params:
+            path_params['fk'] = params['fk']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/devices/{id}/transients/{fk}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DeviceTransient',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1553,107 +2490,6 @@ class DeviceApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DeviceConfig',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def device_prototype_wake_up(self, id, **kwargs):  # noqa: E501
-        """Send wake instruction to device  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.device_prototype_wake_up(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param float id: device id (required)
-        :param float duration:
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.device_prototype_wake_up_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.device_prototype_wake_up_with_http_info(id, **kwargs)  # noqa: E501
-            return data
-
-    def device_prototype_wake_up_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Send wake instruction to device  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.device_prototype_wake_up_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param float id: device id (required)
-        :param float duration:
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['id', 'duration']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method device_prototype_wake_up" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `device_prototype_wake_up`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in params:
-            path_params['id'] = params['id']  # noqa: E501
-
-        query_params = []
-        if 'duration' in params:
-            query_params.append(('duration', params['duration']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/devices/{id}/wakeUp', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
