@@ -87,8 +87,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'credentials' is set
-        if ('credentials' not in params or
-                params['credentials'] is None):
+        if self.api_client.client_side_validation and ('credentials' not in params or
+                                                       params['credentials'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `credentials` when calling `user_login`")  # noqa: E501
 
         collection_formats = {}
@@ -188,8 +188,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_create_geofences`")  # noqa: E501
 
         collection_formats = {}
@@ -287,8 +287,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_delete_geofences`")  # noqa: E501
 
         collection_formats = {}
@@ -386,12 +386,12 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_destroy_by_id_geofences`")  # noqa: E501
         # verify the required parameter 'fk' is set
-        if ('fk' not in params or
-                params['fk'] is None):
+        if self.api_client.client_side_validation and ('fk' not in params or
+                                                       params['fk'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `fk` when calling `user_prototype_destroy_by_id_geofences`")  # noqa: E501
 
         collection_formats = {}
@@ -491,12 +491,12 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_find_by_id_geofences`")  # noqa: E501
         # verify the required parameter 'fk' is set
-        if ('fk' not in params or
-                params['fk'] is None):
+        if self.api_client.client_side_validation and ('fk' not in params or
+                                                       params['fk'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `fk` when calling `user_prototype_find_by_id_geofences`")  # noqa: E501
 
         collection_formats = {}
@@ -555,7 +555,7 @@ class UserApi(object):
         :param str point_count: Maximum number of points to return per device. Default 5.
         :param str date_range: What date range to consider when retrieving recent points. Typical use is [TimeOfLastPointDownload, NOW]. Defaults to all time.
         :param str hide_approx: Don't include GSM / poor accuracy locations. Default to false.
-        :return: list[XAny]
+        :return: list[object]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -579,7 +579,7 @@ class UserApi(object):
         :param str point_count: Maximum number of points to return per device. Default 5.
         :param str date_range: What date range to consider when retrieving recent points. Typical use is [TimeOfLastPointDownload, NOW]. Defaults to all time.
         :param str hide_approx: Don't include GSM / poor accuracy locations. Default to false.
-        :return: list[XAny]
+        :return: list[object]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -600,8 +600,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_get_device_summary`")  # noqa: E501
 
         collection_formats = {}
@@ -643,7 +643,7 @@ class UserApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[XAny]',  # noqa: E501
+            response_type='list[object]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -705,8 +705,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_get_devices`")  # noqa: E501
 
         collection_formats = {}
@@ -765,7 +765,7 @@ class UserApi(object):
         :param str zone_id: ID of geofence to search. zoneId or zoneType required.
         :param str zone_type: Type of zones to search. Ignored if zoneId is specified. zoneId or zoneType required.
         :param str include_approx: Include GSM / poor accuracy locations. Default to false.
-        :return: list[XAny]
+        :return: list[object]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -789,7 +789,7 @@ class UserApi(object):
         :param str zone_id: ID of geofence to search. zoneId or zoneType required.
         :param str zone_type: Type of zones to search. Ignored if zoneId is specified. zoneId or zoneType required.
         :param str include_approx: Include GSM / poor accuracy locations. Default to false.
-        :return: list[XAny]
+        :return: list[object]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -810,8 +810,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_get_devices_in_zone`")  # noqa: E501
 
         collection_formats = {}
@@ -853,7 +853,7 @@ class UserApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[XAny]',  # noqa: E501
+            response_type='list[object]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -915,8 +915,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_get_geofences`")  # noqa: E501
 
         collection_formats = {}
@@ -972,7 +972,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: user id (required)
-        :return: InlineResponse200
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -993,7 +993,7 @@ class UserApi(object):
 
         :param async_req bool
         :param str id: user id (required)
-        :return: InlineResponse200
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1014,8 +1014,8 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_get_mqtt_credentials`")  # noqa: E501
 
         collection_formats = {}
@@ -1051,7 +1051,7 @@ class UserApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1115,12 +1115,12 @@ class UserApi(object):
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in params or
+                                                       params['id'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `id` when calling `user_prototype_update_by_id_geofences`")  # noqa: E501
         # verify the required parameter 'fk' is set
-        if ('fk' not in params or
-                params['fk'] is None):
+        if self.api_client.client_side_validation and ('fk' not in params or
+                                                       params['fk'] is None):  # noqa: E501
             raise ValueError("Missing the required parameter `fk` when calling `user_prototype_update_by_id_geofences`")  # noqa: E501
 
         collection_formats = {}

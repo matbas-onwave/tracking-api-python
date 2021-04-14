@@ -1,25 +1,41 @@
 # lb_tracking_api.DeviceApi
 
-All URIs are relative to *https://cp.remotethings.co.uk/api*
+All URIs are relative to *https://api.thelightbug.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**device_find_by_id**](DeviceApi.md#device_find_by_id) | **GET** /devices/{id} | Find a model instance by {{id}} from the data source.
+[**device_prototype_create_gateway_readings**](DeviceApi.md#device_prototype_create_gateway_readings) | **POST** /devices/{id}/gatewayReadings | Creates a new instance in gatewayReadings of this model.
+[**device_prototype_create_messages**](DeviceApi.md#device_prototype_create_messages) | **POST** /devices/{id}/messages | Creates a new instance in messages of this model.
 [**device_prototype_create_notification_triggers**](DeviceApi.md#device_prototype_create_notification_triggers) | **POST** /devices/{id}/notificationTriggers | Create alert/notification trigger for device
+[**device_prototype_delete_gateway_readings**](DeviceApi.md#device_prototype_delete_gateway_readings) | **DELETE** /devices/{id}/gatewayReadings | Deletes all gatewayReadings of this model.
+[**device_prototype_delete_messages**](DeviceApi.md#device_prototype_delete_messages) | **DELETE** /devices/{id}/messages | Deletes all messages of this model.
 [**device_prototype_delete_notification_triggers**](DeviceApi.md#device_prototype_delete_notification_triggers) | **DELETE** /devices/{id}/notificationTriggers | Remove all alert/notification trigger for device
+[**device_prototype_destroy_by_id_gateway_readings**](DeviceApi.md#device_prototype_destroy_by_id_gateway_readings) | **DELETE** /devices/{id}/gatewayReadings/{fk} | Delete a related item by id for gatewayReadings.
+[**device_prototype_destroy_by_id_notification_triggers**](DeviceApi.md#device_prototype_destroy_by_id_notification_triggers) | **DELETE** /devices/{id}/notificationTriggers/{fk} | Remove alert/notification trigger by id {fk} for device
 [**device_prototype_destroy_by_id_points**](DeviceApi.md#device_prototype_destroy_by_id_points) | **DELETE** /devices/{id}/points/{fk} | Delete a specific point for a device
+[**device_prototype_destroy_by_id_transients**](DeviceApi.md#device_prototype_destroy_by_id_transients) | **DELETE** /devices/{id}/transients/{fk} | Delete a related item by id for transients.
+[**device_prototype_find_by_id_gateway_readings**](DeviceApi.md#device_prototype_find_by_id_gateway_readings) | **GET** /devices/{id}/gatewayReadings/{fk} | Find a related item by id for gatewayReadings.
+[**device_prototype_find_by_id_notification_triggers**](DeviceApi.md#device_prototype_find_by_id_notification_triggers) | **GET** /devices/{id}/notificationTriggers/{fk} | Find a related item by id for notificationTriggers.
 [**device_prototype_find_by_id_points**](DeviceApi.md#device_prototype_find_by_id_points) | **GET** /devices/{id}/points/{fk} | Retrieve a specific point for a device
 [**device_prototype_find_by_id_readings**](DeviceApi.md#device_prototype_find_by_id_readings) | **GET** /devices/{id}/readings/{fk} | Retrieve a specific reading for a device
+[**device_prototype_find_by_id_transients**](DeviceApi.md#device_prototype_find_by_id_transients) | **GET** /devices/{id}/transients/{fk} | Find a related item by id for transients.
 [**device_prototype_flight_mode**](DeviceApi.md#device_prototype_flight_mode) | **GET** /devices/{id}/flightMode | 
 [**device_prototype_get_config**](DeviceApi.md#device_prototype_get_config) | **GET** /devices/{id}/config | Retrieve configuration for a device
+[**device_prototype_get_gateway_readings**](DeviceApi.md#device_prototype_get_gateway_readings) | **GET** /devices/{id}/gatewayReadings | Queries gatewayReadings of device.
+[**device_prototype_get_messages**](DeviceApi.md#device_prototype_get_messages) | **GET** /devices/{id}/messages | Queries messages of device.
 [**device_prototype_get_notification_triggers**](DeviceApi.md#device_prototype_get_notification_triggers) | **GET** /devices/{id}/notificationTriggers | Get alerts for device
 [**device_prototype_get_points**](DeviceApi.md#device_prototype_get_points) | **GET** /devices/{id}/points | Retrieve points for a device
 [**device_prototype_get_readings**](DeviceApi.md#device_prototype_get_readings) | **GET** /devices/{id}/readings | Retrieve readings for a device
 [**device_prototype_get_safe_zone**](DeviceApi.md#device_prototype_get_safe_zone) | **GET** /devices/{id}/getSafeZone | Get safe-zone for device
+[**device_prototype_get_transients**](DeviceApi.md#device_prototype_get_transients) | **GET** /devices/{id}/transients | Queries transients of device.
+[**device_prototype_nearby_device_data**](DeviceApi.md#device_prototype_nearby_device_data) | **GET** /devices/{id}/nearbyDeviceData | 
+[**device_prototype_nearby_devices**](DeviceApi.md#device_prototype_nearby_devices) | **GET** /devices/{id}/nearbyDevices | 
 [**device_prototype_set_safe_zone**](DeviceApi.md#device_prototype_set_safe_zone) | **POST** /devices/{id}/setSafeZone | Update safe-zone for device
-[**device_prototype_sleep**](DeviceApi.md#device_prototype_sleep) | **GET** /devices/{id}/sleep | Send sleep instruction to device
+[**device_prototype_update_by_id_gateway_readings**](DeviceApi.md#device_prototype_update_by_id_gateway_readings) | **PUT** /devices/{id}/gatewayReadings/{fk} | Update a related item by id for gatewayReadings.
+[**device_prototype_update_by_id_notification_triggers**](DeviceApi.md#device_prototype_update_by_id_notification_triggers) | **PUT** /devices/{id}/notificationTriggers/{fk} | Update an alert/notification trigger by id {fk} for device
+[**device_prototype_update_by_id_transients**](DeviceApi.md#device_prototype_update_by_id_transients) | **PUT** /devices/{id}/transients/{fk} | Update a related item by id for transients.
 [**device_prototype_update_config**](DeviceApi.md#device_prototype_update_config) | **PUT** /devices/{id}/config | Update configuration for a device
-[**device_prototype_wake_up**](DeviceApi.md#device_prototype_wake_up) | **GET** /devices/{id}/wakeUp | Send wake instruction to device
 
 
 # **device_find_by_id**
@@ -58,6 +74,102 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Device**](Device.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_create_gateway_readings**
+> SensorReading device_prototype_create_gateway_readings(id, data=data)
+
+Creates a new instance in gatewayReadings of this model.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+data = lb_tracking_api.SensorReading() # SensorReading | Body (JSON) (optional)
+
+try:
+    # Creates a new instance in gatewayReadings of this model.
+    api_response = api_instance.device_prototype_create_gateway_readings(id, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_create_gateway_readings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **data** | [**SensorReading**](SensorReading.md)| Body (JSON) | [optional] 
+
+### Return type
+
+[**SensorReading**](SensorReading.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_create_messages**
+> DeviceMessage device_prototype_create_messages(id, data=data)
+
+Creates a new instance in messages of this model.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+data = lb_tracking_api.DeviceMessage() # DeviceMessage | Body (JSON) (optional)
+
+try:
+    # Creates a new instance in messages of this model.
+    api_response = api_instance.device_prototype_create_messages(id, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_create_messages: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **data** | [**DeviceMessage**](DeviceMessage.md)| Body (JSON) | [optional] 
+
+### Return type
+
+[**DeviceMessage**](DeviceMessage.md)
 
 ### Authorization
 
@@ -118,6 +230,96 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **device_prototype_delete_gateway_readings**
+> device_prototype_delete_gateway_readings(id)
+
+Deletes all gatewayReadings of this model.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+
+try:
+    # Deletes all gatewayReadings of this model.
+    api_instance.device_prototype_delete_gateway_readings(id)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_delete_gateway_readings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_delete_messages**
+> device_prototype_delete_messages(id)
+
+Deletes all messages of this model.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+
+try:
+    # Deletes all messages of this model.
+    api_instance.device_prototype_delete_messages(id)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_delete_messages: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **device_prototype_delete_notification_triggers**
 > device_prototype_delete_notification_triggers(id)
 
@@ -147,6 +349,100 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **float**| device id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_destroy_by_id_gateway_readings**
+> device_prototype_destroy_by_id_gateway_readings(id, fk)
+
+Delete a related item by id for gatewayReadings.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+fk = 8.14 # float | Foreign key for gatewayReadings
+
+try:
+    # Delete a related item by id for gatewayReadings.
+    api_instance.device_prototype_destroy_by_id_gateway_readings(id, fk)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_destroy_by_id_gateway_readings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **fk** | **float**| Foreign key for gatewayReadings | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_destroy_by_id_notification_triggers**
+> device_prototype_destroy_by_id_notification_triggers(id, fk)
+
+Remove alert/notification trigger by id {fk} for device
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+fk = 8.14 # float | Foreign key for notificationTriggers
+
+try:
+    # Remove alert/notification trigger by id {fk} for device
+    api_instance.device_prototype_destroy_by_id_notification_triggers(id, fk)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_destroy_by_id_notification_triggers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **fk** | **float**| Foreign key for notificationTriggers | 
 
 ### Return type
 
@@ -198,6 +494,149 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_destroy_by_id_transients**
+> device_prototype_destroy_by_id_transients(id, fk)
+
+Delete a related item by id for transients.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+fk = 8.14 # float | Foreign key for transients
+
+try:
+    # Delete a related item by id for transients.
+    api_instance.device_prototype_destroy_by_id_transients(id, fk)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_destroy_by_id_transients: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **fk** | **float**| Foreign key for transients | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_find_by_id_gateway_readings**
+> SensorReading device_prototype_find_by_id_gateway_readings(id, fk)
+
+Find a related item by id for gatewayReadings.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+fk = 8.14 # float | Foreign key for gatewayReadings
+
+try:
+    # Find a related item by id for gatewayReadings.
+    api_response = api_instance.device_prototype_find_by_id_gateway_readings(id, fk)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_find_by_id_gateway_readings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **fk** | **float**| Foreign key for gatewayReadings | 
+
+### Return type
+
+[**SensorReading**](SensorReading.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_find_by_id_notification_triggers**
+> NotificationTrigger device_prototype_find_by_id_notification_triggers(id, fk)
+
+Find a related item by id for notificationTriggers.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+fk = 8.14 # float | Foreign key for notificationTriggers
+
+try:
+    # Find a related item by id for notificationTriggers.
+    api_response = api_instance.device_prototype_find_by_id_notification_triggers(id, fk)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_find_by_id_notification_triggers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **fk** | **float**| Foreign key for notificationTriggers | 
+
+### Return type
+
+[**NotificationTrigger**](NotificationTrigger.md)
 
 ### Authorization
 
@@ -306,6 +745,54 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **device_prototype_find_by_id_transients**
+> DeviceTransient device_prototype_find_by_id_transients(id, fk)
+
+Find a related item by id for transients.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+fk = 8.14 # float | Foreign key for transients
+
+try:
+    # Find a related item by id for transients.
+    api_response = api_instance.device_prototype_find_by_id_transients(id, fk)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_find_by_id_transients: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **fk** | **float**| Foreign key for transients | 
+
+### Return type
+
+[**DeviceTransient**](DeviceTransient.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **device_prototype_flight_mode**
 > object device_prototype_flight_mode(id, duration)
 
@@ -389,6 +876,102 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeviceConfig**](DeviceConfig.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_get_gateway_readings**
+> list[SensorReading] device_prototype_get_gateway_readings(id, filter=filter)
+
+Queries gatewayReadings of device.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+filter = 'filter_example' # str | JSON Filter object (optional)
+
+try:
+    # Queries gatewayReadings of device.
+    api_response = api_instance.device_prototype_get_gateway_readings(id, filter=filter)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_get_gateway_readings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **filter** | **str**| JSON Filter object | [optional] 
+
+### Return type
+
+[**list[SensorReading]**](SensorReading.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_get_messages**
+> list[DeviceMessage] device_prototype_get_messages(id, filter=filter)
+
+Queries messages of device.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+filter = 'filter_example' # str | JSON Filter object (optional)
+
+try:
+    # Queries messages of device.
+    api_response = api_instance.device_prototype_get_messages(id, filter=filter)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_get_messages: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **filter** | **str**| JSON Filter object | [optional] 
+
+### Return type
+
+[**list[DeviceMessage]**](DeviceMessage.md)
 
 ### Authorization
 
@@ -591,6 +1174,152 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **device_prototype_get_transients**
+> list[DeviceTransient] device_prototype_get_transients(id, filter=filter)
+
+Queries transients of device.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+filter = 'filter_example' # str | JSON Filter object (optional)
+
+try:
+    # Queries transients of device.
+    api_response = api_instance.device_prototype_get_transients(id, filter=filter)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_get_transients: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **filter** | **str**| JSON Filter object | [optional] 
+
+### Return type
+
+[**list[DeviceTransient]**](DeviceTransient.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_nearby_device_data**
+> object device_prototype_nearby_device_data(id, nearby_id, date_range)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+nearby_id = 'nearby_id_example' # str | 
+date_range = 'date_range_example' # str | 
+
+try:
+    api_response = api_instance.device_prototype_nearby_device_data(id, nearby_id, date_range)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_nearby_device_data: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **nearby_id** | **str**|  | 
+ **date_range** | **str**|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_nearby_devices**
+> list[object] device_prototype_nearby_devices(id, date_range=date_range, correlation_id=correlation_id)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+date_range = 'date_range_example' # str |  (optional)
+correlation_id = 'correlation_id_example' # str |  (optional)
+
+try:
+    api_response = api_instance.device_prototype_nearby_devices(id, date_range=date_range, correlation_id=correlation_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_nearby_devices: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **date_range** | **str**|  | [optional] 
+ **correlation_id** | **str**|  | [optional] 
+
+### Return type
+
+**list[object]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **device_prototype_set_safe_zone**
 > Geofence device_prototype_set_safe_zone(id, data)
 
@@ -639,10 +1368,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **device_prototype_sleep**
-> object device_prototype_sleep(id, duration=duration)
+# **device_prototype_update_by_id_gateway_readings**
+> SensorReading device_prototype_update_by_id_gateway_readings(id, fk, data=data)
 
-Send sleep instruction to device
+Update a related item by id for gatewayReadings.
 
 ### Example
 ```python
@@ -655,14 +1384,15 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = lb_tracking_api.DeviceApi()
 id = 8.14 # float | device id
-duration = 8.14 # float |  (optional)
+fk = 8.14 # float | Foreign key for gatewayReadings
+data = lb_tracking_api.SensorReading() # SensorReading | Body (JSON) (optional)
 
 try:
-    # Send sleep instruction to device
-    api_response = api_instance.device_prototype_sleep(id, duration=duration)
+    # Update a related item by id for gatewayReadings.
+    api_response = api_instance.device_prototype_update_by_id_gateway_readings(id, fk, data=data)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DeviceApi->device_prototype_sleep: %s\n" % e)
+    print("Exception when calling DeviceApi->device_prototype_update_by_id_gateway_readings: %s\n" % e)
 ```
 
 ### Parameters
@@ -670,11 +1400,112 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **float**| device id | 
- **duration** | **float**|  | [optional] 
+ **fk** | **float**| Foreign key for gatewayReadings | 
+ **data** | [**SensorReading**](SensorReading.md)| Body (JSON) | [optional] 
 
 ### Return type
 
-**object**
+[**SensorReading**](SensorReading.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_update_by_id_notification_triggers**
+> NotificationTrigger device_prototype_update_by_id_notification_triggers(id, fk, data=data)
+
+Update an alert/notification trigger by id {fk} for device
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+fk = 8.14 # float | Foreign key for notificationTriggers
+data = lb_tracking_api.NotificationTrigger() # NotificationTrigger | Body (JSON) (optional)
+
+try:
+    # Update an alert/notification trigger by id {fk} for device
+    api_response = api_instance.device_prototype_update_by_id_notification_triggers(id, fk, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_update_by_id_notification_triggers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **fk** | **float**| Foreign key for notificationTriggers | 
+ **data** | [**NotificationTrigger**](NotificationTrigger.md)| Body (JSON) | [optional] 
+
+### Return type
+
+[**NotificationTrigger**](NotificationTrigger.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **device_prototype_update_by_id_transients**
+> DeviceTransient device_prototype_update_by_id_transients(id, fk, data=data)
+
+Update a related item by id for transients.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import lb_tracking_api
+from lb_tracking_api.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = lb_tracking_api.DeviceApi()
+id = 8.14 # float | device id
+fk = 8.14 # float | Foreign key for transients
+data = lb_tracking_api.DeviceTransient() # DeviceTransient | Body (JSON) (optional)
+
+try:
+    # Update a related item by id for transients.
+    api_response = api_instance.device_prototype_update_by_id_transients(id, fk, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceApi->device_prototype_update_by_id_transients: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **float**| device id | 
+ **fk** | **float**| Foreign key for transients | 
+ **data** | [**DeviceTransient**](DeviceTransient.md)| Body (JSON) | [optional] 
+
+### Return type
+
+[**DeviceTransient**](DeviceTransient.md)
 
 ### Authorization
 
@@ -723,54 +1554,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeviceConfig**](DeviceConfig.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
- - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **device_prototype_wake_up**
-> object device_prototype_wake_up(id, duration=duration)
-
-Send wake instruction to device
-
-### Example
-```python
-from __future__ import print_function
-import time
-import lb_tracking_api
-from lb_tracking_api.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = lb_tracking_api.DeviceApi()
-id = 8.14 # float | device id
-duration = 8.14 # float |  (optional)
-
-try:
-    # Send wake instruction to device
-    api_response = api_instance.device_prototype_wake_up(id, duration=duration)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DeviceApi->device_prototype_wake_up: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **float**| device id | 
- **duration** | **float**|  | [optional] 
-
-### Return type
-
-**object**
 
 ### Authorization
 

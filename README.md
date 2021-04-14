@@ -43,32 +43,50 @@ except ApiException as e:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://cp.remotethings.co.uk/api*
+All URIs are relative to *https://api.thelightbug.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DeviceApi* | [**device_find_by_id**](docs/DeviceApi.md#device_find_by_id) | **GET** /devices/{id} | Find a model instance by {{id}} from the data source.
+*DeviceApi* | [**device_prototype_create_gateway_readings**](docs/DeviceApi.md#device_prototype_create_gateway_readings) | **POST** /devices/{id}/gatewayReadings | Creates a new instance in gatewayReadings of this model.
+*DeviceApi* | [**device_prototype_create_messages**](docs/DeviceApi.md#device_prototype_create_messages) | **POST** /devices/{id}/messages | Creates a new instance in messages of this model.
 *DeviceApi* | [**device_prototype_create_notification_triggers**](docs/DeviceApi.md#device_prototype_create_notification_triggers) | **POST** /devices/{id}/notificationTriggers | Create alert/notification trigger for device
+*DeviceApi* | [**device_prototype_delete_gateway_readings**](docs/DeviceApi.md#device_prototype_delete_gateway_readings) | **DELETE** /devices/{id}/gatewayReadings | Deletes all gatewayReadings of this model.
+*DeviceApi* | [**device_prototype_delete_messages**](docs/DeviceApi.md#device_prototype_delete_messages) | **DELETE** /devices/{id}/messages | Deletes all messages of this model.
 *DeviceApi* | [**device_prototype_delete_notification_triggers**](docs/DeviceApi.md#device_prototype_delete_notification_triggers) | **DELETE** /devices/{id}/notificationTriggers | Remove all alert/notification trigger for device
+*DeviceApi* | [**device_prototype_destroy_by_id_gateway_readings**](docs/DeviceApi.md#device_prototype_destroy_by_id_gateway_readings) | **DELETE** /devices/{id}/gatewayReadings/{fk} | Delete a related item by id for gatewayReadings.
+*DeviceApi* | [**device_prototype_destroy_by_id_notification_triggers**](docs/DeviceApi.md#device_prototype_destroy_by_id_notification_triggers) | **DELETE** /devices/{id}/notificationTriggers/{fk} | Remove alert/notification trigger by id {fk} for device
 *DeviceApi* | [**device_prototype_destroy_by_id_points**](docs/DeviceApi.md#device_prototype_destroy_by_id_points) | **DELETE** /devices/{id}/points/{fk} | Delete a specific point for a device
+*DeviceApi* | [**device_prototype_destroy_by_id_transients**](docs/DeviceApi.md#device_prototype_destroy_by_id_transients) | **DELETE** /devices/{id}/transients/{fk} | Delete a related item by id for transients.
+*DeviceApi* | [**device_prototype_find_by_id_gateway_readings**](docs/DeviceApi.md#device_prototype_find_by_id_gateway_readings) | **GET** /devices/{id}/gatewayReadings/{fk} | Find a related item by id for gatewayReadings.
+*DeviceApi* | [**device_prototype_find_by_id_notification_triggers**](docs/DeviceApi.md#device_prototype_find_by_id_notification_triggers) | **GET** /devices/{id}/notificationTriggers/{fk} | Find a related item by id for notificationTriggers.
 *DeviceApi* | [**device_prototype_find_by_id_points**](docs/DeviceApi.md#device_prototype_find_by_id_points) | **GET** /devices/{id}/points/{fk} | Retrieve a specific point for a device
 *DeviceApi* | [**device_prototype_find_by_id_readings**](docs/DeviceApi.md#device_prototype_find_by_id_readings) | **GET** /devices/{id}/readings/{fk} | Retrieve a specific reading for a device
+*DeviceApi* | [**device_prototype_find_by_id_transients**](docs/DeviceApi.md#device_prototype_find_by_id_transients) | **GET** /devices/{id}/transients/{fk} | Find a related item by id for transients.
 *DeviceApi* | [**device_prototype_flight_mode**](docs/DeviceApi.md#device_prototype_flight_mode) | **GET** /devices/{id}/flightMode | 
 *DeviceApi* | [**device_prototype_get_config**](docs/DeviceApi.md#device_prototype_get_config) | **GET** /devices/{id}/config | Retrieve configuration for a device
+*DeviceApi* | [**device_prototype_get_gateway_readings**](docs/DeviceApi.md#device_prototype_get_gateway_readings) | **GET** /devices/{id}/gatewayReadings | Queries gatewayReadings of device.
+*DeviceApi* | [**device_prototype_get_messages**](docs/DeviceApi.md#device_prototype_get_messages) | **GET** /devices/{id}/messages | Queries messages of device.
 *DeviceApi* | [**device_prototype_get_notification_triggers**](docs/DeviceApi.md#device_prototype_get_notification_triggers) | **GET** /devices/{id}/notificationTriggers | Get alerts for device
 *DeviceApi* | [**device_prototype_get_points**](docs/DeviceApi.md#device_prototype_get_points) | **GET** /devices/{id}/points | Retrieve points for a device
 *DeviceApi* | [**device_prototype_get_readings**](docs/DeviceApi.md#device_prototype_get_readings) | **GET** /devices/{id}/readings | Retrieve readings for a device
 *DeviceApi* | [**device_prototype_get_safe_zone**](docs/DeviceApi.md#device_prototype_get_safe_zone) | **GET** /devices/{id}/getSafeZone | Get safe-zone for device
+*DeviceApi* | [**device_prototype_get_transients**](docs/DeviceApi.md#device_prototype_get_transients) | **GET** /devices/{id}/transients | Queries transients of device.
+*DeviceApi* | [**device_prototype_nearby_device_data**](docs/DeviceApi.md#device_prototype_nearby_device_data) | **GET** /devices/{id}/nearbyDeviceData | 
+*DeviceApi* | [**device_prototype_nearby_devices**](docs/DeviceApi.md#device_prototype_nearby_devices) | **GET** /devices/{id}/nearbyDevices | 
 *DeviceApi* | [**device_prototype_set_safe_zone**](docs/DeviceApi.md#device_prototype_set_safe_zone) | **POST** /devices/{id}/setSafeZone | Update safe-zone for device
-*DeviceApi* | [**device_prototype_sleep**](docs/DeviceApi.md#device_prototype_sleep) | **GET** /devices/{id}/sleep | Send sleep instruction to device
+*DeviceApi* | [**device_prototype_update_by_id_gateway_readings**](docs/DeviceApi.md#device_prototype_update_by_id_gateway_readings) | **PUT** /devices/{id}/gatewayReadings/{fk} | Update a related item by id for gatewayReadings.
+*DeviceApi* | [**device_prototype_update_by_id_notification_triggers**](docs/DeviceApi.md#device_prototype_update_by_id_notification_triggers) | **PUT** /devices/{id}/notificationTriggers/{fk} | Update an alert/notification trigger by id {fk} for device
+*DeviceApi* | [**device_prototype_update_by_id_transients**](docs/DeviceApi.md#device_prototype_update_by_id_transients) | **PUT** /devices/{id}/transients/{fk} | Update a related item by id for transients.
 *DeviceApi* | [**device_prototype_update_config**](docs/DeviceApi.md#device_prototype_update_config) | **PUT** /devices/{id}/config | Update configuration for a device
-*DeviceApi* | [**device_prototype_wake_up**](docs/DeviceApi.md#device_prototype_wake_up) | **GET** /devices/{id}/wakeUp | Send wake instruction to device
 *UserApi* | [**user_login**](docs/UserApi.md#user_login) | **POST** /users/login | Login a user with username/email and password.
 *UserApi* | [**user_prototype_create_geofences**](docs/UserApi.md#user_prototype_create_geofences) | **POST** /users/{id}/geofences | Creates a new instance in geofences of this model.
 *UserApi* | [**user_prototype_delete_geofences**](docs/UserApi.md#user_prototype_delete_geofences) | **DELETE** /users/{id}/geofences | Deletes all geofences of this model.
 *UserApi* | [**user_prototype_destroy_by_id_geofences**](docs/UserApi.md#user_prototype_destroy_by_id_geofences) | **DELETE** /users/{id}/geofences/{fk} | Delete a related item by id for geofences.
 *UserApi* | [**user_prototype_find_by_id_geofences**](docs/UserApi.md#user_prototype_find_by_id_geofences) | **GET** /users/{id}/geofences/{fk} | Find a related item by id for geofences.
+*UserApi* | [**user_prototype_get_device_summary**](docs/UserApi.md#user_prototype_get_device_summary) | **GET** /users/{id}/getDeviceSummary | Retrieve a summary of all devices on this user account.
 *UserApi* | [**user_prototype_get_devices**](docs/UserApi.md#user_prototype_get_devices) | **GET** /users/{id}/devices | Queries devices of user.
+*UserApi* | [**user_prototype_get_devices_in_zone**](docs/UserApi.md#user_prototype_get_devices_in_zone) | **GET** /users/{id}/getDevicesInZone | Retrieve a list of devices in any given zone or group of zones.
 *UserApi* | [**user_prototype_get_geofences**](docs/UserApi.md#user_prototype_get_geofences) | **GET** /users/{id}/geofences | Queries geofences of user.
 *UserApi* | [**user_prototype_get_mqtt_credentials**](docs/UserApi.md#user_prototype_get_mqtt_credentials) | **GET** /users/{id}/getMqttCredentials | 
 *UserApi* | [**user_prototype_update_by_id_geofences**](docs/UserApi.md#user_prototype_update_by_id_geofences) | **PUT** /users/{id}/geofences/{fk} | Update a related item by id for geofences.
@@ -81,9 +99,11 @@ Class | Method | HTTP request | Description
  - [Datapoint](docs/Datapoint.md)
  - [Device](docs/Device.md)
  - [DeviceConfig](docs/DeviceConfig.md)
+ - [DeviceMessage](docs/DeviceMessage.md)
+ - [DeviceTransient](docs/DeviceTransient.md)
  - [GeoPoint](docs/GeoPoint.md)
  - [Geofence](docs/Geofence.md)
- - [InlineResponse200](docs/InlineResponse200.md)
+ - [Notification](docs/Notification.md)
  - [NotificationTrigger](docs/NotificationTrigger.md)
  - [SensorReading](docs/SensorReading.md)
 
