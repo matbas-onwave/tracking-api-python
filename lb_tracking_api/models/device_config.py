@@ -854,8 +854,6 @@ class DeviceConfig(object):
         :param on_demand_time: The on_demand_time of this DeviceConfig.  # noqa: E501
         :type: float
         """
-        if self._configuration.client_side_validation and on_demand_time is None:
-            raise ValueError("Invalid value for `on_demand_time`, must not be `None`")  # noqa: E501
 
         self._on_demand_time = on_demand_time
 
