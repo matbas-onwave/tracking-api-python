@@ -45,6 +45,7 @@ class Datapoint(object):
         'hdop': 'float',
         'accuracy': 'float',
         'location_type': 'str',
+        'battery_pct': 'float',
         'battery_voltage': 'float',
         'average_charge': 'float',
         'created': 'datetime',
@@ -70,6 +71,7 @@ class Datapoint(object):
         'hdop': 'hdop',
         'accuracy': 'accuracy',
         'location_type': 'locationType',
+        'battery_pct': 'batteryPct',
         'battery_voltage': 'batteryVoltage',
         'average_charge': 'averageCharge',
         'created': 'created',
@@ -82,7 +84,7 @@ class Datapoint(object):
         'device_id': 'deviceId'
     }
 
-    def __init__(self, location=None, timestamp=None, speed=None, altitude=None, course=None, num_value=None, string_value=None, send_reason=None, sats=None, hdop=None, accuracy=None, location_type='gps', battery_voltage=None, average_charge=None, created=None, address=None, alert_type=None, current_used=None, gsm_signal=None, correlation_id=None, id=None, device_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, location=None, timestamp=None, speed=None, altitude=None, course=None, num_value=None, string_value=None, send_reason=None, sats=None, hdop=None, accuracy=None, location_type='gps', battery_pct=None, battery_voltage=None, average_charge=None, created=None, address=None, alert_type=None, current_used=None, gsm_signal=None, correlation_id=None, id=None, device_id=None, _configuration=None):  # noqa: E501
         """Datapoint - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +102,7 @@ class Datapoint(object):
         self._hdop = None
         self._accuracy = None
         self._location_type = None
+        self._battery_pct = None
         self._battery_voltage = None
         self._average_charge = None
         self._created = None
@@ -134,6 +137,8 @@ class Datapoint(object):
         if accuracy is not None:
             self.accuracy = accuracy
         self.location_type = location_type
+        if battery_pct is not None:
+            self.battery_pct = battery_pct
         if battery_voltage is not None:
             self.battery_voltage = battery_voltage
         if average_charge is not None:
@@ -431,6 +436,29 @@ class Datapoint(object):
             raise ValueError("Invalid value for `location_type`, must not be `None`")  # noqa: E501
 
         self._location_type = location_type
+
+    @property
+    def battery_pct(self):
+        """Gets the battery_pct of this Datapoint.  # noqa: E501
+
+        Battery percentage level.  # noqa: E501
+
+        :return: The battery_pct of this Datapoint.  # noqa: E501
+        :rtype: float
+        """
+        return self._battery_voltage
+
+    @battery_pct.setter
+    def battery_pct(self, battery_pct):
+        """Sets the battery_pct of this Datapoint.
+
+        Battery percentage level.  # noqa: E501
+
+        :param battery_pct: The battery_pct of this Datapoint.  # noqa: E501
+        :type: float
+        """
+
+        self._battery_pct = battery_pct
 
     @property
     def battery_voltage(self):
