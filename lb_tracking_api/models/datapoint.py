@@ -55,7 +55,8 @@ class Datapoint(object):
         'gsm_signal': 'float',
         'correlation_id': 'str',
         'id': 'float',
-        'device_id': 'float'
+        'device_id': 'float',
+        'notif_sent': 'object'
     }
 
     attribute_map = {
@@ -81,10 +82,11 @@ class Datapoint(object):
         'gsm_signal': 'gsmSignal',
         'correlation_id': 'correlationId',
         'id': 'id',
-        'device_id': 'deviceId'
+        'device_id': 'deviceId',
+         'notif_sent': 'notif_sent'
     }
 
-    def __init__(self, location=None, timestamp=None, speed=None, altitude=None, course=None, num_value=None, string_value=None, send_reason=None, sats=None, hdop=None, accuracy=None, location_type='gps', battery_pct=None, battery_voltage=None, average_charge=None, created=None, address=None, alert_type=None, current_used=None, gsm_signal=None, correlation_id=None, id=None, device_id=None, _configuration=None):  # noqa: E501
+    def __init__(self, location=None, timestamp=None, speed=None, altitude=None, course=None, num_value=None, string_value=None, send_reason=None, sats=None, hdop=None, accuracy=None, location_type='gps', battery_pct=None, battery_voltage=None, average_charge=None, created=None, address=None, alert_type=None, current_used=None, gsm_signal=None, correlation_id=None, id=None, device_id=None, _configuration=None, notif_sent=None):  # noqa: E501
         """Datapoint - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -113,6 +115,7 @@ class Datapoint(object):
         self._correlation_id = None
         self._id = None
         self._device_id = None
+        self._notif_sent = None
         self.discriminator = None
 
         if location is not None:
@@ -158,6 +161,8 @@ class Datapoint(object):
             self.id = id
         if device_id is not None:
             self.device_id = device_id
+        if notif_sent is not None:
+            self.notif_sent = notif_sent
 
     @property
     def location(self):
@@ -687,6 +692,25 @@ class Datapoint(object):
         """
 
         self._device_id = device_id
+
+    @property
+    def notif_sent(self):
+        """Gets the notif_sent of this Datapoint.  # noqa: E501
+
+        :return: The notif_sent of this Datapoint.  # noqa: E501
+        :rtype: object
+        """
+        return self._notif_sent
+
+    @notif_sent.setter
+    def notif_sent(self, notif_sent):
+        """Sets the notif_sent of this Datapoint.
+
+        :param notif_sent: The notif_sent of this Datapoint.  # noqa: E501
+        :type: object
+        """
+
+        self._notif_sent = notif_sent
 
     def to_dict(self):
         """Returns the model properties as a dict"""
